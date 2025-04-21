@@ -1,0 +1,33 @@
+[package]
+name = "simple-pool-contract"
+version = "0.1.0"
+edition = "2021"
+
+
+[lib]
+crate-type = ["cdylib", "lib"]
+
+
+[features]
+default = []
+no-entrypoint = []
+inline = []
+
+
+[dependencies]
+borsh = {workspace = true}
+num-derive = {workspace = true}
+num-traits = {workspace = true}
+thiserror = {workspace = true}
+ahash = {workspace = true}
+
+
+[target.'cfg(not(target_arch = "solana"))'.dependencies]
+solana-program = {path = "../../solana-program"}
+spl-token = {path = "../../spl-token", features = ["no-entrypoint"]}
+spl-associated-token-account = {path = "../../spl-associated-token-account", features = ["no-entrypoint"]}
+
+[else]
+solana-program = "=1.16.10"
+spl-token = "3.5.0"
+spl-associated-token-account = "1.1.3"

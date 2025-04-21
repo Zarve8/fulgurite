@@ -1,0 +1,51 @@
+[package]
+name = "fulgurite-v2"
+version = "0.1.0"
+edition = "2021"
+
+
+[lib]
+crate-type = ["cdylib", "lib"]
+
+
+[workspace]
+members = [
+    "solana-program",
+    "contracts/descriptor",
+    "contracts/viewer",
+    "spl-token",
+    "spl-associated-token-account",
+    "contracts/simple-pool"
+]
+
+
+[workspace.dependencies]
+base64 = "0.22.1"
+borsh = "0.9.3"
+serde = {version = "1.0.163", features = ["derive"]}
+libloading = "0.8"
+lazy_static = "1.5.0"
+chrono = "0.4.38"
+num-derive = "0.4.0"
+num-traits = "0.2.16"
+thiserror = "1.0.47"
+ahash = "=0.8.8"
+resolve-path = "0.1.0"
+
+
+[dependencies]
+base64 = {workspace = true}
+borsh = {workspace = true}
+serde = {workspace = true}
+libloading = {workspace = true}
+lazy_static = {workspace = true}
+chrono = {workspace = true}
+resolve-path = {workspace = true}
+
+solana-program = {path = "./solana-program", features = ["fulgurite"] }
+descriptor-contract = {path="contracts/descriptor", features = ["inline"]}
+viewer-contract = {path="contracts/viewer", features = ["inline"]}
+simple-pool-contract = {path = "contracts/simple-pool", features = ["inline"]}
+spl-token = {path = "spl-token", features = ["inline"]}
+spl-associated-token-account = {path = "spl-associated-token-account", features = ["inline"]}
+

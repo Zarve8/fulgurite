@@ -1,0 +1,28 @@
+[package]
+name = "viewer-contract"
+version = "0.1.0"
+edition = "2021"
+
+
+[lib]
+crate-type = ["cdylib", "lib"]
+
+
+[features]
+default = []
+no-entrypoint = []
+inline = []
+
+
+[dependencies]
+borsh = {workspace = true}
+num-derive = {workspace = true}
+num-traits = {workspace = true}
+thiserror = {workspace = true}
+ahash = {workspace = true}
+descriptor-contract = {path = "../descriptor"}
+
+[target.'cfg(not(target_arch = "solana"))'.dependencies]
+solana-program = {path = "../../solana-program"}
+[else]
+solana-program = "=1.16.10"
