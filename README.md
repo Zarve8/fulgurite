@@ -16,8 +16,8 @@ inline = []
 
 [target.'cfg(not(target_arch = "solana"))'.dependencies]
 solana-program = {path = "../../solana-program"}
-spl-token = {path = "../../spl-token", features = ["no-entrypoint"]}
-spl-associated-token-account = {path = "../../spl-associated-token-account", features = ["no-entrypoint"]}
+spl-token = {git = "https://github.com/Zarve8/fulgurite.git", features = ["no-entrypoint"]}
+spl-associated-token-account = {git = "https://github.com/Zarve8/fulgurite.git", features = ["no-entrypoint"]}
 
 [else]
 solana-program = "=1.16.10"
