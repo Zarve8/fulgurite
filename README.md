@@ -38,6 +38,13 @@ If you need other packages you'd have to add them to the project and rebuild
 as a contract with system-program package substituted with fulgurite/system-program.
 
 ## Features
-* Test with standard rust tests
+* Test with standard rust tests, multithreading supported
 * Cross Program Invocation, PDA supported
 * Account Datas & Logs interplay
+* Lib and DLL contract import
+
+## Limitations
+* Account Data modification not checked
+* Sysvar accounts not provided. Rent and Clock info provided directly
+* No BPFLoader, use **Program** struct to import your contracts to the environment
+* Other Solana programs cannot be import directly without sdk substitution
