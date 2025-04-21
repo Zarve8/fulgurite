@@ -1,5 +1,5 @@
 [package]
-name = "fulgurite-v2"
+name = "fulgurite"
 version = "0.1.0"
 edition = "2021"
 
